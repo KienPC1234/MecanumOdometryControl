@@ -15,7 +15,7 @@ public class TelemetryManager {
     }
 
     public static TelemetryManager getInstance(Telemetry telemetry) {
-        if (instance == null) {
+        if (instance == null && telemetry != null) {
             instance = new TelemetryManager(telemetry);
         }
         return instance;
@@ -26,6 +26,10 @@ public class TelemetryManager {
     }
 
     public void update() {
+        if (telemetry == null) {
+            dataList.clear();
+            return;
+        }
         for (TelemetryData data : dataList) {
             telemetry.addData(data.caption, data.value);
         }

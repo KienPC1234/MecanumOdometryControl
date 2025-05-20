@@ -28,8 +28,9 @@ public class MecanumDriveOpMode extends LinearOpMode {
         robot.getPinpoint().resetPosAndIMU();
 
         telemetry.addData("Status", "Initialized");
-        telemetry.addData("X offset", robot.getPinpoint().getXOffset(DistanceUnit.MM));
-        telemetry.addData("Y offset", robot.getPinpoint().getYOffset(DistanceUnit.MM));
+        telemetry.addData("X offset (mm)", robot.getPinpoint().getXOffset(DistanceUnit.MM));
+        telemetry.addData("Y offset (mm)", robot.getPinpoint().getYOffset(DistanceUnit.MM));
+        telemetry.addData("Device Version", robot.getPinpoint().getDeviceVersion());
         telemetry.update();
 
         waitForStart();
