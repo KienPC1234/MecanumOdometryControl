@@ -17,7 +17,7 @@ public class MecanumDriveOpMode extends LinearOpMode {
                 .setTelemetryManager(telemetryManager)
                 .setAlpha(0.98)
                 .build();
-        ArmController arm = new ArmController(robot, new PreciseAngleControlStrategy());
+        ArmController arm = new ArmController(robot, new PreciseAngleControlStrategy(),telemetry);
 
         robot.getPinpoint().setOffsets(-84.0, -168.0, DistanceUnit.MM);
         robot.getPinpoint().setEncoderResolution(GoBildaPinpointDriver.GoBildaOdometryPods.goBILDA_4_BAR_POD);

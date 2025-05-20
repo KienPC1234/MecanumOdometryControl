@@ -1,14 +1,19 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.hardware.Gamepad;
+
+import org.firstinspires.ftc.robotcore.external.Telemetry;
+
 import java.util.Locale;
 
 public class ArmController {
     private final RobotHardware robot;
     private final ArmControlStrategy strategy;
     private double currentAngle;
+    private final Telemetry telemetry;
 
-    public ArmController(RobotHardware robot, ArmControlStrategy strategy) {
+    public ArmController(RobotHardware robot, ArmControlStrategy strategy , Telemetry telemetry) {
+        this.telemetry = telemetry;
         this.robot = robot;
         this.strategy = strategy;
         this.currentAngle = 0;
@@ -22,6 +27,6 @@ public class ArmController {
             strategy.setAngle(robot.getArmServo(), 90);
             currentAngle = 90;
         }
-        TelemetryManager.getInstance(null).addData("Arm Angle (deg)", String.format(Locale.US, "%.1f", currentAngle));
+        telemetry.addData("Arm Angle (deg)", String.format(Locale.US, "%.1f", currentAngle));
     }
 }
