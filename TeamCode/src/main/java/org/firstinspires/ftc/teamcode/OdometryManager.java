@@ -51,11 +51,11 @@ public class OdometryManager {
         telemetryManager.addData("X (in)", String.format(Locale.US, "%.3f", pose.getX(DistanceUnit.INCH)));
         telemetryManager.addData("Y (in)", String.format(Locale.US, "%.3f", pose.getY(DistanceUnit.INCH)));
         telemetryManager.addData("Heading (deg)", String.format(Locale.US, "%.3f", Math.toDegrees(fusedHeading)));
-        telemetryManager.addData("Encoder X (ticks)", String.format(Locale.US, "%d", encoderX));
-        telemetryManager.addData("Encoder Y (ticks)", String.format(Locale.US, "%d", encoderY));
-        telemetryManager.addData("Device Status", robot.getPinpoint().getDeviceStatus().toString());
-        telemetryManager.addData("Pinpoint Frequency (Hz)", String.format(Locale.US, "%.2f", robot.getPinpoint().getFrequency()));
-        telemetryManager.addData("Loop Frequency (Hz)", String.format(Locale.US, "%.2f", frequency));
+//        telemetryManager.addData("Encoder X (ticks)", String.format(Locale.US, "%d", encoderX));
+//        telemetryManager.addData("Encoder Y (ticks)", String.format(Locale.US, "%d", encoderY));
+//        telemetryManager.addData("Device Status", robot.getPinpoint().getDeviceStatus().toString());
+//        telemetryManager.addData("Pinpoint Frequency (Hz)", String.format(Locale.US, "%.2f", robot.getPinpoint().getFrequency()));
+//        telemetryManager.addData("Loop Frequency (Hz)", String.format(Locale.US, "%.2f", frequency));
     }
 
     private double normalizeAngle(double angle) {

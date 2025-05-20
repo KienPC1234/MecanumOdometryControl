@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 public class PreciseAngleControlStrategy implements ArmControlStrategy {
     private static final double SERVO_MIN_POS = 0.0;
     private static final double SERVO_MAX_POS = 1.0;
-    private static final double ANGLE_RANGE = 180.0;
+    private static final double ANGLE_RANGE = 300.0;
 
     @Override
     public void setAngle(Servo servo, double angle) {
