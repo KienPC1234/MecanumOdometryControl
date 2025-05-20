@@ -1,10 +1,8 @@
 package org.firstinspires.ftc.teamcode;
 
-import com.qualcomm.hardware.HardwareFactory;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-
-import org.firstinspires.ftc.robotcontroller.external.samples.RobotHardware;
+import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 
 @TeleOp(name = "MecanumDriveOpMode", group = "Linear Opmode")
 public class MecanumDriveOpMode extends LinearOpMode {
@@ -21,7 +19,21 @@ public class MecanumDriveOpMode extends LinearOpMode {
                 .build();
         ArmController arm = new ArmController(robot, new PreciseAngleControlStrategy());
 
+        robot.getPinpoint().setOffsets(-84.0, -168.0, DistanceUnit.MM);
+        robot.getPinpoint().setEncoderResolution(GoBildaPinpointDriver.GoBildaOdometryPods.goBILDA_4_BAR_POD);
+        robot.getPinpoint().setEncoderDirections(
+                GoBildaPinpointDriver.EncoderDirection.FORWARD,
+                GoBildaPinpointDriver.EncoderDirection.FORWARD
+        );
+        robot.getPinpoint().resetPosAndIMU();
+
+        telemetry.addData("Status", "Initialized");
+        telemetry.addData("X offset", robot.getPinpoint().getXOffset(DistanceUnit.MM));
+        telemetry.addData("Y offset", robot.getPinpoint().getYOffset(DistanceUnit.MM));
+        telemetry.update();
+
         waitForStart();
+        resetRuntime();
 
         while (opModeIsActive()) {
             drive.update(gamepad1);

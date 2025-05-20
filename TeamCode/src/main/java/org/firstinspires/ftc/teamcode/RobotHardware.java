@@ -5,7 +5,6 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
-
 public class RobotHardware {
     private final DcMotor frontLeft;
     private final DcMotor frontRight;
@@ -31,8 +30,6 @@ public class RobotHardware {
         frontRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         backLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         backRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-
-        pinpoint.setPoseEstimate(new Pose2D(0, 0, 0));
     }
 
     public DcMotor getFrontLeft() {

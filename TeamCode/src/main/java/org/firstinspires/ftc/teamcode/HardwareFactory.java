@@ -1,4 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
-public class HardwareFactory {
+import com.qualcomm.robotcore.hardware.HardwareMap;
+
+public interface HardwareFactory {
+    RobotHardware createRobotHardware();
 }
